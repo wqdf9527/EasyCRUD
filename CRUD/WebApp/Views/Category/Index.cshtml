@@ -1,0 +1,28 @@
+﻿@model IEnumerable<WebApp.Models.Categories>
+@{
+    ViewBag.Title = "Index";
+}
+<a href="~/Category/Insert" class="btn btn-primary">新增種類</a>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>CategoryID</th>
+            <th>CategoryName</th>
+            <th>Description</th>
+            <th>編輯</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var _category in Model)
+        {
+            <tr>
+                <td>@_category.CategoryID</td>
+                <td>@_category.CategoryName</td>
+                <td>@_category.Description</td>
+                <td><a href="~/Category/Edit/@_category.CategoryID" class="btn btn-success">edit</a> <a href="~/Category/Delete/@_category.CategoryID" class="btn btn-danger" onclick="return confirm('確定要刪除嗎? 刪除後無法還原')">del</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
